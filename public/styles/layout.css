@@ -16,7 +16,7 @@ body {
   background-color: #eee;
 }
 
-main {
+body .container {
   /*80px or 140px*/
   padding-top: 100px;
   margin: auto;
@@ -24,6 +24,9 @@ main {
   width: 450px;
   height: 90em;
 }
+
+
+
 
 
 

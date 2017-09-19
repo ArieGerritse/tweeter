@@ -16,6 +16,7 @@
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+  <script src="https://use.fontawesome.com/b8994bec03.js"></script>
 </head>
 
 <body>
@@ -31,11 +32,31 @@
       <form method="POST" action="/tweets">
         <textarea name="text" placeholder="What are you humming about?"></textarea>
         <input type="submit" value="Tweet">
-        <span id="charNum" class="counter">140</span>
+        <span class="counter">140</span>
       </form>
     </section>
-    <container id='the-tweets'>
-    </container>
+    <section class="all-tweets">
+      <article class="tweet">
+        <header class="tweet-header">
+          <a href="#">
+          <img class="user-avatar" src="http://fillmurray.com/48/48" alt="Bill Murray">
+        </a>
+          <span class="user-name">Bill Murray</span>
+          <span class="user-handle">@bill_murray</span>
+        </header>
+        <main class="tweet-content">
+          <p>Don't think about your errors or failures; otherwise, you'll never do a thing.</p>
+        </main>
+        <footer>
+          <span>10 days</span>
+          <div class="icons">
+            <i class="fa fa-flag" aria-hidden="true"></i>
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <i class="fa fa-retweet" aria-hidden="true"></i>
+          </div>
+        </footer>
+      </article>
+    </section>
   </main>
 </body>
 
