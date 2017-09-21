@@ -8,6 +8,7 @@
     border: 2px solid #d0d0d0;
     padding-bottom: 10px;
     text-underline-position: 10px;
+    display: none;
   }
 
   .new-tweet .counter {
@@ -82,8 +83,13 @@
   }
 
   .icons {
-    float: left;
+    float: right;
     padding-right: 5px;
     opacity: 0;
     transition: opacity 0.1s linear;
+  }
+
+  .icons i {
+    padding-left: 0.3em;
+    padding-right: 0.3em;
   }
