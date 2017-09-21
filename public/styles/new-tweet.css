@@ -47,6 +47,7 @@
 
   .tweet-header {
     /*margin-top: 0;*/
+    height: 70px;
     background: #eee;
     padding: 7px;
     width: 100%;
@@ -79,6 +80,7 @@
   .tweet footer {
     padding: 5px;
     font-size: 0.7em;
+    height: 23.6px;
     border-top: thin solid #d0d0d0;
   }
 

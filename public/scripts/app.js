@@ -83,9 +83,11 @@ $(function() {
     event.preventDefault();
 
     if (textAreaContent === 0) {
-      alert('Please enter content for your tweet!');
+      // alert('Please enter content for your tweet!');
+      $.flash('Please enter content for your tweet!');
     } else if (textAreaContent > 140) {
-      alert('That tweet is to long, please keep it under 140 characters!');
+      // alert('That tweet is to long, please keep it under 140 characters!');
+      $.flash('That tweet is to long, please keep it under 140 characters!');
     } else {
       var tweetString = $("form").serialize();
       $('textarea').val('');
