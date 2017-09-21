@@ -1,14 +1,9 @@
-
 "use strict";
 
 const MongoClient = require("mongodb").MongoClient;
 //const {MongoClient} = require("mongodb");
 // ^^^ Same thing as above ^^^
 const MONGODB_URI = "mongodb://localhost:27017/tweeter";
-
-// Requiring a JSON file automatically parses it and returns the data. These
-// are just example tweets to make it less tedious to style the app initially.
-
 
 MongoClient.connect(MONGODB_URI, (err, db) => {
   if (err) {
@@ -20,6 +15,13 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   console.log(`Connected to mongodb: ${MONGODB_URI}`);
 
   // ==> Refactored and wrapped as new, tweet-specific function:
+
+  db.collection("tweets").find().toArray((error, tweets) => {
+
+    console.log(tweets);
+
+  });
+
 
   function getTweets(callback) {
     db.collection("tweets").find().toArray((error, anything) => {
@@ -40,14 +42,6 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
     const data = {
       tweets: tweets
     };
-
-    // const data = {
-    //   tweets: require("../data-files/initial-tweets")
-    // }
-
-    console.log(data);
-
-    module.exports = data;
 
     db.close();
   });
