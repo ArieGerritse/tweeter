@@ -16,14 +16,23 @@ body {
   background-color: #eee;
 }
 
-body .container {
+.container {
   /*80px or 140px*/
   padding-top: 100px;
+  width: 450px;
   margin: auto;
   background: white;
-  width: 450px;
-  height: 110%;
+  /*height: 110%;*/
 }
+
+
+
+
+
+
+
+
+
 
 
 

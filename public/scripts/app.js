@@ -6,6 +6,7 @@ $(function() {
 
   function createTweetElement(tweet) {
 
+    let dateFrom = moment(tweet.created_at).fromNow();
 
     /////////////////////////////////////////Building the header
     let $header = ($("<header>")).addClass("tweet-header")
@@ -29,7 +30,7 @@ $(function() {
         "aria-hidden": "true"
       }));
 
-    let $footer = ($('<footer>').append($("<span>")).text(tweet.created_at)).append($icons);
+    let $footer = ($('<footer>').append($("<span>")).addClass("tweet-time").text(dateFrom)).append($icons);
     //////////////////////////////////////////////////////
     let $article = ($('<article>').addClass("tweet").append($header));
 
@@ -110,5 +111,19 @@ $(function() {
     $('.container .new-tweet').slideToggle();
     $('.container textarea').select();
   });
+
+  setInterval(function() {
+    $.ajax({
+      url: 'http://localhost:8080/tweets',
+      method: 'GET',
+      success: function(tweetData) {
+        console.log($('.tweet-time'))
+        for (let i = tweetData.length - 1; i >= 0; i--) {
+          $('.tweet-time').eq(tweetData.length - 1 - i).text(moment(tweetData[i].created_at).fromNow());
+        }
+      }
+    })
+  }, 3000);
+
 
 });
