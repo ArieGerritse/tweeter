@@ -33,6 +33,7 @@ module.exports = function(DataHelpers) {
       content: {
         text: req.body.text
       },
+      likedCount: 0,
       created_at: Date.now()
     };
 
@@ -45,6 +46,12 @@ module.exports = function(DataHelpers) {
         res.status(201).send();
       }
     });
+  });
+
+  tweetsRoutes.put("/:id", function(req, res) {
+
+
+
   });
 
   return tweetsRoutes;

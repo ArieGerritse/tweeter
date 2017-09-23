@@ -6,6 +6,7 @@ $(function() {
 
   function createTweetElement(tweet) {
 
+
     let dateFrom = moment(tweet.created_at).fromNow();
 
     /////////////////////////////////////////Building the header
@@ -21,16 +22,29 @@ $(function() {
         "class": "fa fa-flag",
         "aria-hidden": "true"
       }))
-      .append($("<i>", {
-        "class": "fa fa-heart",
-        "aria-hidden": "true"
-      }))
+      .append($('<span>', {
+          "id": tweet._id,
+        })
+        .append($("<i>", {
+          "class": "fa fa-heart-o",
+          "aria-hidden": "true"
+        })).click(function(icon) {
+
+          console.log(this[0]);
+          console.log($(`#${this.id}`));
+          // if (this.class === "fa fa-heart-o") {
+          //   postLike(this, 1);
+          // } else {
+          //   retractLike(this, -1);
+          // }
+
+        }))
       .append($("<i>", {
         "class": "fa fa-retweet",
         "aria-hidden": "true"
       }));
 
-    let $footer = ($('<footer>').append($("<span>")).addClass("tweet-time").text(dateFrom)).append($icons);
+    let $footer = $('<footer>').append($("<span>").addClass("tweet-time").text(dateFrom)).append($icons);
     //////////////////////////////////////////////////////
     let $article = ($('<article>').addClass("tweet").append($header));
 
@@ -40,6 +54,8 @@ $(function() {
       .append($("<p>").text(tweet.content.text));
 
     let $combine = $article.append($header).append($main).append($footer);
+
+
 
     return $combine;
 
@@ -78,6 +94,41 @@ $(function() {
 
   }
 
+  function postLike(where, likeCount) {
+
+
+    $(where).removeClass("fa fa-heart-o").addClass("fa fa-heart").text(' ' + likeCount);
+
+    // $.ajax({
+    //   type: 'PUT',
+    //   url: '/tweets',
+    //   success: function() {
+    //     if (likeCount === 1) {
+    //       $(this).removeClass("fa fa-heart-o").addClass("fa fa-heart").text(likeCount);
+    //     } else {
+
+    //     }
+    //   }
+    // });
+
+  }
+
+  function retractLike(where, likeCount) {
+
+    $(where).removeClass("fa fa-heart").addClass("fa fa-heart-o").text('');
+
+    // $.ajax({
+    //   url: '/tweets',
+    //   type: 'PUT',
+    //   success: function() {
+    //     if (likeCount === 0) {
+    //       $(this).removeClass("fa fa-heart").addClass("fa fa-heart-o").text('');
+    //     }
+    //   }
+    // });
+
+  }
+
   $("form").submit(function(object) {
 
     let textAreaContent = document.getElementById('tweet-input').value.length;
@@ -95,7 +146,7 @@ $(function() {
         url: '/tweets',
         data: tweetString,
         encode: true,
-        success: function() {
+        success: function(hey) {
           loadTweets();
         }
       });
@@ -114,15 +165,14 @@ $(function() {
 
   setInterval(function() {
     $.ajax({
-      url: 'http://localhost:8080/tweets',
+      url: '/tweets',
       method: 'GET',
       success: function(tweetData) {
-        console.log($('.tweet-time'))
         for (let i = tweetData.length - 1; i >= 0; i--) {
           $('.tweet-time').eq(tweetData.length - 1 - i).text(moment(tweetData[i].created_at).fromNow());
         }
       }
-    })
+    });
   }, 3000);
 
 

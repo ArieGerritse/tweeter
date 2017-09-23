@@ -37,6 +37,10 @@
     word-wrap: break-word;
   }
 
+  .container:last-child {
+    padding-bottom: 2em;
+  }
+
   .container .tweet:hover {
     opacity: 1;
   }
@@ -94,4 +98,8 @@
   .icons i {
     padding-left: 0.3em;
     padding-right: 0.3em;
+  }
+
+  .icons span {
+    cursor: pointer;
   }
