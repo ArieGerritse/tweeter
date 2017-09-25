@@ -16,7 +16,7 @@ body {
   background-color: #eee;
 }
 
-.container {
+body .container {
   /*80px or 140px*/
   padding-top: 100px;
   width: 450px;
@@ -24,6 +24,13 @@ body {
   background: white;
   /*height: 110%;*/
 }
+
+@media (max-width: 450px) {
+  body .container {
+    width: 100%;
+  }
+}
+
 
 
 

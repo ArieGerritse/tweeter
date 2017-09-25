@@ -7,6 +7,7 @@ const MongoClient = require("mongodb").MongoClient;
 
 const MONGODB_URI = "mongodb://localhost:27017/tweeter";
 
+//Connects to the Mongo database for storing tweet information
 
 MongoClient.connect(MONGODB_URI, (err, db) => {
   if (err) {
