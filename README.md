@@ -6,6 +6,10 @@ This repository is the starter code for the project: Students will fork and clon
 
 This is currently a work i plan on putting more time in and will be updated when new features are added! If interested pop by every once in a while to see what has been added!
 
+Current Layout!
+
+!["Screenshot of tweets plus compose box"](https://github.com/ArieGerritse/tweeter/blob/master/docs/tweets-and-textarea.png?raw=true)
+
 ## Getting Started
 
 1. Fork this repository, then clone your fork of this repository.
