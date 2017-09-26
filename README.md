@@ -19,7 +19,6 @@ Current Layout!
 
 ## Dependencies
 
-- Express
 - Node 5.10.x or above
 - Body-parser 1.15.2 or above
 - Chance 1.0.2 or above
